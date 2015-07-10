@@ -55,6 +55,22 @@ MonoBehaviour:
   - {fileID: 135812, guid: 03533d05979a35b40a434cd33dcae0b3, type: 2}
   - {fileID: 197802, guid: e660ba894b1cd064c9e60867a6b32afb, type: 2}
   - {fileID: 136894, guid: 4cb82ca323eac1747aa2fff0f6e5c774, type: 2}
+  wallObstacles:
+  - {fileID: 167916, guid: 6e5fe69a112599a4bac2b9de9ba3b5b6, type: 2}
+  - {fileID: 194270, guid: 832685698b76a3e4e8778c9cf37251a6, type: 2}
+  - {fileID: 187202, guid: d6fefe5b2b9d84d42874d3caa3d2f57f, type: 2}
+  - {fileID: 102694, guid: 9232789150a9d324baf3668e1fdd87ad, type: 2}
+  - {fileID: 186334, guid: 8298d24482dff3c49a389fcc00f20059, type: 2}
+  - {fileID: 187050, guid: 0ee0982d91bb78f408f6c8c2ee1761d4, type: 2}
+  - {fileID: 161264, guid: 9b648b767994f2646bb6e9176b092c9e, type: 2}
+  - {fileID: 130768, guid: b4892dbcef9098b409db3a334a61f75b, type: 2}
+  foodItems:
+  - {fileID: 164276, guid: 2d8be4b054a21964a804ef5a0407ab5a, type: 2}
+  - {fileID: 129752, guid: 4e451a6fc81d95b47b982f1dffd35b08, type: 2}
+  enemies:
+  - {fileID: 193700, guid: ff1e4ca43caf5ea4f9e71a0edeee1d5b, type: 2}
+  - {fileID: 113388, guid: 14f2a914b7cbf6b4eb4dfd328e7a4e33, type: 2}
+  exit: {fileID: 101402, guid: 47628465c3843f44994917d14d7d243d, type: 2}
 --- !u!114 &11497890
 MonoBehaviour:
   m_ObjectHideFlags: 1

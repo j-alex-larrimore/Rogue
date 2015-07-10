@@ -9,6 +9,11 @@ public class BoardController : MonoBehaviour {
 
 	public GameObject[] floors;
 	public GameObject[] outerWalls;
+	public GameObject[] wallObstacles;
+	public GameObject[] foodItems;
+	public GameObject[] enemies;
+	public GameObject exit;
+
 	private Transform gameBoard;
 	private List<Vector3> obstaclesGrid;
 
@@ -54,12 +59,24 @@ public class BoardController : MonoBehaviour {
 		}
 
 		for (int index = 0; index<obstacleCount; index++) {
-			
+			GameObject selectedObstacle = obstaclesArray[Random.Range (0, obstaclesArray.Length)];
+			Instantiate (selectedObstacle, SelectGridPosition(), Quaternion.identity);
 		}
+	}
+
+	private Vector3 SelectGridPosition(){
+		int randomIndex = Random.Range (0, obstaclesGrid.Count);
+		Vector3 randomPosition = obstaclesGrid [randomIndex];
+		obstaclesGrid.RemoveAt (randomIndex);
+		return randomPosition;
 	}
 
 	public void SetupLevel(){
 		InitializeObstaclePositions ();
 		SetupGameBoard();
+		SetRandomObstaclesOnGrid(wallObstacles, 3, 9);
+		SetRandomObstaclesOnGrid (foodItems, 1, 5);
+		SetRandomObstaclesOnGrid (enemies, 1, 3);
+		Instantiate (exit, new Vector3 (columns - 2, rows - 2, 0f), Quaternion.identity);
 	}
 }
