@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &195516
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 422516}
+  - 114: {fileID: 11497890}
+  - 114: {fileID: 11463848}
+  m_Layer: 0
+  m_Name: Game Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &422516
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195516}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11463848
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419b12cc41846544eb5a9418ddf7cdca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  columns: 10
+  rows: 10
+  floors:
+  - {fileID: 104238, guid: f0ccf01c55f26c549843e27d1e357808, type: 2}
+  - {fileID: 144318, guid: 5884d39a33f5b0d43ad52398b14e4834, type: 2}
+  - {fileID: 128452, guid: 2b03a96c38da6f341b2711e56afacf95, type: 2}
+  - {fileID: 134656, guid: 1c95cf14d762c264f91843f85df95f5c, type: 2}
+  - {fileID: 163498, guid: 554e6324313fc21419640d4a9d310b4b, type: 2}
+  - {fileID: 195570, guid: bbc0603b80b59714685ca06001dfa147, type: 2}
+  - {fileID: 146392, guid: ace07edd5b9bc1b4dab40bbb56995398, type: 2}
+  - {fileID: 116878, guid: beef09cc5fa2b4f44a4d3da8a99032fb, type: 2}
+  outerWalls:
+  - {fileID: 135812, guid: 03533d05979a35b40a434cd33dcae0b3, type: 2}
+  - {fileID: 197802, guid: e660ba894b1cd064c9e60867a6b32afb, type: 2}
+  - {fileID: 136894, guid: 4cb82ca323eac1747aa2fff0f6e5c774, type: 2}
+--- !u!114 &11497890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70337a787c5ac06488bc763743b16a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 195516}
+  m_IsPrefabParent: 1
