@@ -91,6 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveTime: .100000001
   isEnemyStrong: 1
+  attackDamage: 10
 --- !u!212 &21250614
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -139,6 +140,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: isEnemyStrong
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: attackDamage
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

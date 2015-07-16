@@ -82,6 +82,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70337a787c5ac06488bc763743b16a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayerTurn: 0
+  areEnemiesMoving: 0
+  playerCurrentHealth: 50
+  gameOverSound: {fileID: 8300000, guid: bbdad7cac71eab54fb165d6131d31772, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

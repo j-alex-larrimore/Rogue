@@ -60,7 +60,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: .899999976, y: .899999976}
 --- !u!95 &9587946
 Animator:
   serializedVersion: 3
@@ -90,6 +90,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveTime: .100000001
+  healthText: {fileID: 0}
+  movementSound1: {fileID: 8300000, guid: 13ef1ee4268f2ae4d8c4d083083d2cba, type: 3}
+  movementSound2: {fileID: 8300000, guid: 9aa971c7e35eac748814cbc4a75938c4, type: 3}
+  chopSound1: {fileID: 8300000, guid: f89065f8706fbcd4f89b5ef7a4235753, type: 3}
+  chopSound2: {fileID: 8300000, guid: 93126c9ddf6c2674fa3e0389f1583d8e, type: 3}
+  fruitSound1: {fileID: 8300000, guid: 6b08144df47537c42aa224190eafd370, type: 3}
+  fruitSound2: {fileID: 8300000, guid: 71a49b73c38655d4a8377e4a22f7beb4, type: 3}
+  sodaSound1: {fileID: 8300000, guid: 27b42821b2b89f648b9446677a9a460e, type: 3}
+  sodaSound2: {fileID: 8300000, guid: 15f5a03ba7e20004ca83dad1b23689d5, type: 3}
 --- !u!212 &21264960
 SpriteRenderer:
   m_ObjectHideFlags: 1
