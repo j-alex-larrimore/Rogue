@@ -45,7 +45,7 @@ public class GameController : MonoBehaviour {
 		levelText.text = "Day " + currentLevel;
 		levelImage.SetActive (true);
 		enemies.Clear ();
-		boardController.SetupLevel();
+		boardController.SetupLevel(currentLevel);
 		Invoke("DisableLevelImage", secondsUntilLevelStart);
 	}
 
@@ -91,8 +91,13 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void GameOver(){
+		isPlayerTurn = false;
+		SoundController.Instance.music.Stop ();
+		SoundController.Instance.PlaySingle (gameOverSound);
+
 		levelText.text = "You starved after " + currentLevel + " days...";
 		levelImage.SetActive (true);
 		enabled = false;
+
 	}
 }

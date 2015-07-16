@@ -71,12 +71,13 @@ public class BoardController : MonoBehaviour {
 		return randomPosition;
 	}
 
-	public void SetupLevel(){
+	public void SetupLevel(int currentLevel){
 		InitializeObstaclePositions ();
 		SetupGameBoard();
 		SetRandomObstaclesOnGrid(wallObstacles, 3, 9);
 		SetRandomObstaclesOnGrid (foodItems, 1, 5);
-		SetRandomObstaclesOnGrid (enemies, 1, 3);
+		int enemyCount = (int)Mathf.Log (currentLevel, 2);
+		SetRandomObstaclesOnGrid (enemies, enemyCount, enemyCount);
 		Instantiate (exit, new Vector3 (columns - 2, rows - 2, 0f), Quaternion.identity);
 	}
 }

@@ -5,6 +5,8 @@ public class Enemy : MovingObject {
 
 	public bool isEnemyStrong;
 	public int attackDamage;
+	public AudioClip enemySound1;
+	public AudioClip enemySound2;
 
 	private bool skipCurrentMove;
 	private Transform player;
@@ -63,5 +65,6 @@ public class Enemy : MovingObject {
 
 		player.TakeDamage (attackDamage);
 		animator.SetTrigger ("enemyAttack");
+		SoundController.Instance.PlaySingle (enemySound1, enemySound2);
 	}
 }

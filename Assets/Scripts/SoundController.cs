@@ -7,6 +7,9 @@ public class SoundController : MonoBehaviour {
 	public AudioSource soundEffect;
 	public AudioSource music;
 
+	private float lowPitchRange = 0.9f;
+	private float highPitchRange = 1.1f;
+
 	void Awake() {
 		if (Instance != null && Instance != this) {
 			DestroyImmediate(gameObject);
@@ -24,6 +27,9 @@ public class SoundController : MonoBehaviour {
 
 	private void RandomizeSoundEffect(AudioClip[] clips){
 		int randomSoundIndex = Random.Range (0, clips.Length);
+		float randomPitch = Random.Range(lowPitchRange, highPitchRange);
+
+		soundEffect.pitch = randomPitch;
 		soundEffect.clip = clips [randomSoundIndex];
 
 	}

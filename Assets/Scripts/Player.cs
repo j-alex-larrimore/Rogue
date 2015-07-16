@@ -34,10 +34,11 @@ public class Player : MovingObject {
 	}
 
 	void Update () {
-		CheckIfGameOver ();
 		if (!GameController.Instance.isPlayerTurn) {
 			return;
 		}
+		
+		CheckIfGameOver ();
 
 		int xAxis = 0;
 		int yAxis = 0;

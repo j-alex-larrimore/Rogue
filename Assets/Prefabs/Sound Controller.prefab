@@ -180,6 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundEffect: {fileID: 8206968}
+  music: {fileID: 8280936}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -92,6 +92,8 @@ MonoBehaviour:
   moveTime: .100000001
   isEnemyStrong: 0
   attackDamage: 5
+  enemySound1: {fileID: 8300000, guid: 72e33a44600457543812584bcae12892, type: 3}
+  enemySound2: {fileID: 8300000, guid: 269606c6e3609254bbb4e6a43ae9f340, type: 3}
 --- !u!212 &21267762
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -141,6 +143,14 @@ Prefab:
       propertyPath: attackDamage
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: enemySound1
+      value: 
+      objectReference: {fileID: 8300000, guid: 72e33a44600457543812584bcae12892, type: 3}
+    - target: {fileID: 0}
+      propertyPath: enemySound2
+      value: 
+      objectReference: {fileID: 8300000, guid: 269606c6e3609254bbb4e6a43ae9f340, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 113388}
