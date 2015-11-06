@@ -9,6 +9,8 @@ public abstract class MovingObject : MonoBehaviour {
 	private Rigidbody2D rigidBody;
 	private LayerMask collisionLayer;
 	private float inverseMoveTime;
+	private Vector2 endPosition;
+	private Vector2 startPosition;
 
 	protected virtual void Start () {
 		boxCollider = GetComponent<BoxCollider2D> ();
@@ -33,8 +35,8 @@ public abstract class MovingObject : MonoBehaviour {
 	}
 
 	protected bool CanObjectMove(int xDirection, int yDirection, out RaycastHit2D hit){
-		Vector2 startPosition = rigidBody.position;
-		Vector2 endPosition = startPosition + new Vector2 (xDirection, yDirection);
+		startPosition = rigidBody.position;
+		endPosition = startPosition + new Vector2 (xDirection, yDirection);
 
 		boxCollider.enabled = false;
 		hit = Physics2D.Linecast (startPosition, endPosition, collisionLayer);
@@ -46,6 +48,10 @@ public abstract class MovingObject : MonoBehaviour {
 		}
 
 		return false;
+	}
+
+	protected Vector2 getPosition(){
+		return rigidBody.position;
 	}
 
 	protected IEnumerator SmoothMovementRoutine(Vector2 endPosition){

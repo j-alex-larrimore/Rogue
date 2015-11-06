@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -22,6 +22,10 @@ public class Player : MovingObject {
 	private int healthPerSoda = 10;
 	private int secondsUntilNextLevel = 1;
 
+	private int minScreenWidth;
+	private int maxScreenWidth;
+	private int tileSize;
+
 	protected override void Start(){
 		base.Start ();
 		animator = GetComponent<Animator> ();
@@ -40,21 +44,66 @@ public class Player : MovingObject {
 		
 		CheckIfGameOver ();
 
+		Vector2 touchPosition;
+		Vector2 currentPosition = this.getPosition();
+
 		int xAxis = 0;
 		int yAxis = 0;
+	
+		//Debug.Log ("updating");
+		if (Input.touchCount > 0) {
+			touchPosition = Input.GetTouch (0).position;
+			xAxis = (int)touchPosition.x;
+			yAxis = (int)touchPosition.y;
+			int screenWidth = Screen.currentResolution.width;
+			int screenHeight = Screen.currentResolution.height;
+			minScreenWidth = (screenWidth - screenHeight) / 2;
+			maxScreenWidth = minScreenWidth + screenHeight;
+			tileSize = screenHeight/10;
 
-		xAxis = (int)Input.GetAxisRaw ("Horizontal");
-		yAxis = (int)Input.GetAxisRaw ("Vertical");
+			if(xAxis >= minScreenWidth && xAxis <= maxScreenWidth){
+				xAxis -= minScreenWidth; //Ignores the extra space from the left of the screen
+				xAxis /= tileSize;
+				yAxis /= tileSize;
 
-		if (xAxis != 0) {
-			yAxis = 0;
+				if(Mathf.Abs(xAxis - (int)currentPosition.x) > Mathf.Abs(yAxis - (int)currentPosition.y)){
+					yAxis = 0;
+					if(xAxis - (int)currentPosition.x > 0){
+						xAxis = 1;
+					}
+					else if(xAxis - (int)currentPosition.x < 0){
+						xAxis = -1;
+					}else{
+						xAxis = 0;
+					}
+				}else {
+					xAxis = 0;
+					if(yAxis - (int)currentPosition.y > 0){
+						yAxis = 1;
+					}
+					else if(yAxis - (int)currentPosition.y < 0){
+						yAxis = -1;
+					}else{
+						yAxis = 0;
+					}
+				}
+			}else{
+				xAxis = 0;
+				yAxis = 0;
+			}
+		} else {
+			xAxis = (int)Input.GetAxisRaw ("Horizontal");
+			yAxis = (int)Input.GetAxisRaw ("Vertical");
+			if (xAxis != 0) {
+				yAxis = 0;
+			}
 		}
 
 		if (xAxis != 0 || yAxis != 0) {
 			playerHealth--;
 			healthText.text = "Health: " + playerHealth;
 			SoundController.Instance.PlaySingle(movementSound1, movementSound2);
-			Move<Wall> (xAxis, yAxis);
+			Move<Wall> ((int)xAxis, (int)yAxis);
 			GameController.Instance.isPlayerTurn = false;
 		}
 
