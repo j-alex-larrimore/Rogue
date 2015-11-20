@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour {
 			return;
 		}
 
-		Screen.SetResolution(640, 480, true);
+		//Screen.SetResolution(640, 480, true);
 		Instance = this;
 		DontDestroyOnLoad (gameObject);
 		boardController = GetComponent<BoardController> ();

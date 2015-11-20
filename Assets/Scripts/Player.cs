@@ -25,6 +25,9 @@ public class Player : MovingObject {
 	private int minScreenWidth;
 	private int maxScreenWidth;
 	private int tileSize;
+	
+	int xAxis = 0;
+	int yAxis = 0;
 
 	protected override void Start(){
 		base.Start ();
@@ -44,49 +47,16 @@ public class Player : MovingObject {
 		
 		CheckIfGameOver ();
 
-		Vector2 touchPosition;
-		Vector2 currentPosition = this.getPosition();
-
-		int xAxis = 0;
-		int yAxis = 0;
-	
-		//Debug.Log ("updating");
 		if (Input.touchCount > 0) {
-			touchPosition = Input.GetTouch (0).position;
+			Vector2 touchPosition = Input.GetTouch (0).position;
 			xAxis = (int)touchPosition.x;
 			yAxis = (int)touchPosition.y;
-			int screenWidth = Screen.currentResolution.width;
-			int screenHeight = Screen.currentResolution.height;
-			minScreenWidth = (screenWidth - screenHeight) / 2;
-			maxScreenWidth = minScreenWidth + screenHeight;
-			tileSize = screenHeight/10;
+
+			SetScreenSize();
 
 			if(xAxis >= minScreenWidth && xAxis <= maxScreenWidth){
-				xAxis -= minScreenWidth; //Ignores the extra space from the left of the screen
-				xAxis /= tileSize;
-				yAxis /= tileSize;
+				ExecuteTouch();
 
-				if(Mathf.Abs(xAxis - (int)currentPosition.x) > Mathf.Abs(yAxis - (int)currentPosition.y)){
-					yAxis = 0;
-					if(xAxis - (int)currentPosition.x > 0){
-						xAxis = 1;
-					}
-					else if(xAxis - (int)currentPosition.x < 0){
-						xAxis = -1;
-					}else{
-						xAxis = 0;
-					}
-				}else {
-					xAxis = 0;
-					if(yAxis - (int)currentPosition.y > 0){
-						yAxis = 1;
-					}
-					else if(yAxis - (int)currentPosition.y < 0){
-						yAxis = -1;
-					}else{
-						yAxis = 0;
-					}
-				}
 			}else{
 				xAxis = 0;
 				yAxis = 0;
@@ -146,6 +116,56 @@ public class Player : MovingObject {
 	private void CheckIfGameOver(){
 		if (playerHealth <= 0) {
 			GameController.Instance.GameOver();
+		}
+	}
+
+	private void SetScreenSize(){
+		int screenWidth = Screen.currentResolution.width;
+		int screenHeight = Screen.currentResolution.height;
+		minScreenWidth = (screenWidth - screenHeight) / 2;
+		maxScreenWidth = minScreenWidth + screenHeight;
+		tileSize = screenHeight/10;
+	}
+
+	private void ExecuteTouch(){
+		Vector2 currentPosition = this.getPosition();
+
+		CorrectForScreens ();
+		
+		if(Mathf.Abs(xAxis - (int)currentPosition.x) > Mathf.Abs(yAxis - (int)currentPosition.y)){
+			MoveHorizontal(currentPosition);
+		}else {
+			MoveVertical(currentPosition);
+		}
+	}
+
+	private void CorrectForScreens(){
+		xAxis -= minScreenWidth; //Ignores the extra space from the left of the screen
+		xAxis /= tileSize;
+		yAxis /= tileSize;
+	}
+
+	private void MoveHorizontal(Vector2 currentPosition){
+		yAxis = 0;
+		if(xAxis - (int)currentPosition.x > 0){
+			xAxis = 1;
+		}
+		else if(xAxis - (int)currentPosition.x < 0){
+			xAxis = -1;
+		}else{
+			xAxis = 0;
+		}
+	}
+
+	private void MoveVertical(Vector2 currentPosition){
+		xAxis = 0;
+		if(yAxis - (int)currentPosition.y > 0){
+			yAxis = 1;
+		}
+		else if(yAxis - (int)currentPosition.y < 0){
+			yAxis = -1;
+		}else{
+			yAxis = 0;
 		}
 	}
 }
